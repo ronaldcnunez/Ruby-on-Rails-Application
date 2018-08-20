@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist_id: 1
+  venue_id: 1
+  date: MyString
+  verified: false
+
+two:
+  artist_id: 1
+  venue_id: 1
+  date: MyString
+  verified: false
