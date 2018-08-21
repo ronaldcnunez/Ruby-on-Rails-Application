@@ -20,7 +20,11 @@ class VenuesController < ApplicationController
   end
 
   def index
-    @venues = Venue.all
+    if params[:venue_search]
+      @venues = Venue.select {|venue| venue.name.downcase.include?(params[:venue_search].downcase)}
+    else
+      @venues = Venue.all
+    end
   end
 
   def edit

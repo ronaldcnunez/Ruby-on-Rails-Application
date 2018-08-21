@@ -1,8 +1,10 @@
-<% if flash[:notice] %>
-  <div class="notice">
-    <%= flash[:notice] %></p>
-  </div>
+<%= render partial: './static/toolbar' %>
+<h1><%= @artist.name %></h1>
+<h3><%= "Upcoming Events" %></h3>
+<% @artist.events.map do |event| %>
+<%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %><br>
 <% end %>
+<<<<<<< HEAD
 
 <div class="card">
   <h1><%= @artist.name %></h1>
@@ -25,3 +27,5 @@
 <%= link_to "Artist Log out", artist_logout_path, method: :delete%>
 <%= link_to "Artist Profile", current_artist %>
 <%= link_to "Artist Log in", artist_login_path %>
+=======
+>>>>>>> aa3d950a952b7babcacbd9dd6cba5d7598a83f1f
