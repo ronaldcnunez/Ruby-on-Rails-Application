@@ -7,7 +7,10 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    if @artist.save
+    if @artist.valid?
+      @artist.save
+       ArtistMailer.signup_email(@artist).deliver
+        flash[:notice] = "Artist was successfully created. You are one step closer to independence!"
       redirect_to @artist
     else
       render :new
