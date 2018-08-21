@@ -1,0 +1,14 @@
+<%= render partial: './static/toolbar' %>
+<h1>Artist List</h1>
+
+<%= form_tag artists_path, method: :get do %>
+  <%= search_field_tag(
+      :artist_search,
+      params[:artist_search],
+      placeholder: "Search by Artists Name",
+      ) %>
+<% end %><br>
+
+<% @artists.each do |artist| %>
+<%= link_to "#{artist.name}", artist_path(artist) %><br>
+<% end %>
