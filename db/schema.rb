@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2018_08_20_183618) do
     t.integer "artist_id"
     t.integer "venue_id"
     t.string "date"
-    t.boolean "verified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

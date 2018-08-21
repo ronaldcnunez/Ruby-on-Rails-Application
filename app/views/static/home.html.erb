@@ -1,18 +1,3 @@
-<div class="starter-template">
-  <%= link_to "Artist Signup", new_artist_path %>
-  <%= link_to "Artist Login", artists_login_path %>
-  <%= link_to "Venue Login", venues_login_path%>
-  <%= link_to "Venue Signup", new_venue_path %>
-
-  <%= link_to "Search Events", events_path %>
-  <%= link_to "About", about_path %>
-  <%= link_to "FAQ", faq_path %>
-  <h1>Welcome to Granudo! </h1>
-
-  <h3>Sign up and take control of your art and feel the freedom.</h3>
-
-
-
-
-
-</div>
+<%= render partial: 'toolbar' %>
+<h1>Welcome to Granudo! </h1>
+<h3>Sign up and take control of your art and feel the freedom.</h3>

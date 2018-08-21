@@ -1,17 +1,6 @@
-<% if flash[:notice] %>
-  <div class="notice">
-    <%= flash[:notice] %></p>
-  </div>
+<%= render partial: './static/toolbar' %>
+<h1><%= @artist.name %></h1>
+<h3><%= "Upcoming Events" %></h3>
+<% @artist.events.map do |event| %>
+<%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %><br>
 <% end %>
-
-<div class="card">
-  <h1><%= @artist.name %></h1>
-
-
-<h3>Thank you for signing up. You will recieve periodic emails about our progress and when we launch you'll be the first to know! </h3>
-
-<h5>Check your email for a sweet offer just because you signed up! And don't forget to Tell a Friend to Tell a Friend. :)</h5>
-
-<a href="/" class="btn btn-primary">
-  Home Page
-</a>

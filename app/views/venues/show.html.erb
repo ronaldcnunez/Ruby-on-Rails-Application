@@ -1,0 +1,7 @@
+<%= render partial: './static/toolbar' %>
+<h1><%= @venue.name %></h1>
+
+<h3><%= "Upcoming artists at this event" %></h3>
+<% @venue.events.map do |event| %>
+<%= link_to "#{event.artist.name}", artist_path(event.artist) %><%= " on " %><%= event.date %><br>
+<% end %>

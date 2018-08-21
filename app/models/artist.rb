@@ -9,4 +9,12 @@ end
 class Artist < ApplicationRecord
   has_many :events
   has_many :venues, through: :events
+
+  def artists_search
+    if params[:artist_search]
+      @artists = Artist.select {|artist| artist.name.include?(params[:artist_search])}
+    else
+      @artists = Artist.all
+    end
+  end
 end

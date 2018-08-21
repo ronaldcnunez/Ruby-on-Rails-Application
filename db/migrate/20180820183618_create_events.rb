@@ -4,7 +4,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :artist_id
       t.integer :venue_id
       t.string :date
-      t.boolean :verified
 
       t.timestamps
     end

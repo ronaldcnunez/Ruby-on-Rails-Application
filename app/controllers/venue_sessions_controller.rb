@@ -6,5 +6,5 @@ class VenueSessionsController < ApplicationController
   end
 
   def delete
-  end 
+  end
 end
