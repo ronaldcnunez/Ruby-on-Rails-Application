@@ -1,2 +1,13 @@
-<h1>ArtistSessions#new</h1>
-<p>Find me in app/views/artist_sessions/new.html.erb</p>
+<h1>Artist Login</h1>
+<%= form_for(:session, url: artist_login_url) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %> <br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %> <br>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

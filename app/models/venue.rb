@@ -1,13 +1,14 @@
-class EmailValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute, value)
-    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-      record.errors[attribute] << (options[:message] || "is not an email")
-    end
-  end
-end
-
-
 class Venue < ApplicationRecord
   has_many :events
   has_many :artists, through: :events
+
+  before_save { self.email = email.downcase }
+ validates :name, presence: true, length: { maximum: 50 }
+ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+ validates :email, presence: true, length: { maximum: 255 },
+                   format: { with: VALID_EMAIL_REGEX },
+                   uniqueness: { case_sensitive: false }
+ has_secure_password
+ validates :password, presence: true, length: { minimum: 8 }
+
 end

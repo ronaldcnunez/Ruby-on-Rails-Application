@@ -6,18 +6,18 @@
     <% end %>
   <% end %>
   </ul>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
 
-<div class="form-group">
-  <%= f.label :Name %>
- <%= f.text_field :name %>
-</div>
+  <%= f.label :email %>
+  <%= f.email_field :email %> <br>
 
-<div class="form-group">
-  <%= f.label :Email %>
-  <%= f.text_field :email %>
-</div>
+  <%= f.label :password %>
+  <%= f.password_field :password %> <br>
 
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation %>
+  <br>
 
-  <div class="actions">
-    <%= f.submit 'Sign up', :class => 'btn btn-outline-primary' %></div>
+  <%= f.submit "Create my account" %>
   <% end %>

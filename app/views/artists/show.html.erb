@@ -15,3 +15,13 @@
 <a href="/" class="btn btn-primary">
   Home Page
 </a>
+
+
+
+<h2> <%= current_artist.name %> </h2>
+
+
+
+<%= link_to "Artist Log out", artist_logout_path, method: :delete%>
+<%= link_to "Artist Profile", current_artist %>
+<%= link_to "Artist Log in", artist_login_path %>

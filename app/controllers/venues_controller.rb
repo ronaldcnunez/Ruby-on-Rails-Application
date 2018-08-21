@@ -8,6 +8,8 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new(venue_params)
     if @venue.save
+      log_in @artist
+      flash[:notice] = "Venue was successfully created. You are one step closer to maximizing profit margins & increasing customer satisfaction! (Pretty neat 2 for 1 deal, huh?"      
       redirect_to @venue
     else
       render :new
@@ -44,6 +46,6 @@ class VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).permit(:name, :email, :location)
+    params.require(:venue).permit(:name, :email, :zip_code, :password, :password_confirmation)
   end
 end

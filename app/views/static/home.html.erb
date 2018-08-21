@@ -1,7 +1,7 @@
 <div class="starter-template">
   <%= link_to "Artist Signup", new_artist_path %>
-  <%= link_to "Artist Login", artists_login_path %>
-  <%= link_to "Venue Login", venues_login_path%>
+  <%= link_to "Artist Login", artist_login_path %>
+  <%= link_to "Venue Login", venue_login_path%>
   <%= link_to "Venue Signup", new_venue_path %>
 
   <%= link_to "Search Events", events_path %>
@@ -12,6 +12,10 @@
   <h3>Sign up and take control of your art and feel the freedom.</h3>
 
 
+
+
+  <%= link_to "Artist Log out", artist_logout_path, method: :delete%>
+  <%= link_to "Venue Log out", venue_logout_path, method: :delete%>
 
 
 

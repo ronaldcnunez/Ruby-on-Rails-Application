@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
     if @artist.valid?
       @artist.save
+      log_in @artist
        ArtistMailer.signup_email(@artist).deliver
         flash[:notice] = "Artist was successfully created. You are one step closer to independence!"
       redirect_to @artist
@@ -47,6 +48,6 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :email)
+    params.require(:artist).permit(:name, :email, :password, :password_confirmation)
   end
 end
