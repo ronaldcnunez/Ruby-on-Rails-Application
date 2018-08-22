@@ -1,13 +1,12 @@
+<%= render partial: './static/toolbar' %>
 <h1>Artist Login</h1>
-<%= form_for(:session, url: artist_login_url) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %> <br>
+<h3><%= flash[:notice] %></h3>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %> <br>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= form_tag artist_login_path, method: :post do %>
+  <%= label_tag "Email" %>
+  <%= text_field_tag :email %>
+  <%= label_tag "Password" %>
+  <%= text_field_tag :password %>
+  <%= submit_tag "Login" %>
+<% end %>

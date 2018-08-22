@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create, :index, :show]
   before_action :find_venue, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -6,11 +7,11 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = Venue.new(venue_params)
-    if @venue.save
-      log_in @artist
-      flash[:notice] = "Venue was successfully created. You are one step closer to maximizing profit margins & increasing customer satisfaction! (Pretty neat 2 for 1 deal, huh?"      
-      redirect_to @venue
+    @venue = Venue.create(venue_params)
+    if @venue.valid?
+      flash[:notice] = "Signup successful! Welcome, #{@venue.name}"
+      session[:venue_id] = @venue.id
+      redirect_to venue_path(@venue)
     else
       render :new
     end
@@ -40,7 +41,7 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue.destroy
-    redirect_to venues_page
+    redirect_to venues_path
   end
 
   private
@@ -50,6 +51,6 @@ class VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).permit(:name, :email, :zip_code, :password, :password_confirmation)
+    params.require(:venue).permit(:name, :description, :email, :location, :password, :password_confirmation)
   end
 end

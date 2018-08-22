@@ -1,47 +1,20 @@
 class VenueSessionsController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
   def new
   end
 
   def create
-    venue = Venue.find_by(email: params[:session][:email].downcase)
-    if venue && venue.authenticate(params[:session][:password])
-      redirect_to venue
-      else
-      flash[:danger] = 'Invalid email/password combination'
-      render :new
-    end
-  end
-
-  def show
-  end
-
-  def index
-    @venues = Venue.all
-  end
-
-  def edit
-  end
-
-  def update
-    if @venue.update
-      redirect_to @venue
+    @venue = Venue.find_by({ email: params[:email] })
+    if !!@venue && @venue.authenticate(params[:password])
+      flash[:notice] = "Successfully logged in #{@venue.name}!"
+      session[:venue_id] = @venue.id
+      redirect_to venue_path(@venue)
     else
-      render :edit
-    end
+     flash[:notice] = "Invalid username or password"
+     redirect_to venue_login_path
+   end
   end
 
   def destroy
-    log_out
-       redirect_to root_url
   end
-
-  private
-
-  def find_venue
-    @venue = Venue.find(params[:id])
-  end
-
-
-    def venue_params
-      params.require(:venue).permit(:name, :email, :zip_code, :password, :password_confirmation)
-    end
+end

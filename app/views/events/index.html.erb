@@ -5,10 +5,12 @@
 <h4>
   <%=link_to "#{event.artist.name}", artist_path(event.artist)%>
   <%= " @ " %>
-  <%= link_to "#{event.venue.name}" , venue_path(event.venue) %>
+  <%= link_to "#{event.venue.name}", venue_path(event.venue) %>
   <%= "(#{event.date})" %>
 </h4>
 <h5>
+  <% if event.venue == current_user %>
   <%= link_to "Edit this event", edit_event_path(event) %>
   <%= link_to "Cancel this event", event, data: {confirm: "Remove this event from the listings?"}, method: :delete%>
+  <% end %>
 <% end %>

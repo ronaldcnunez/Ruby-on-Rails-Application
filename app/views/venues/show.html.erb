@@ -1,29 +1,13 @@
-<<<<<<< HEAD
-<% if flash[:notice] %>
-  <div class="notice">
-    <%= flash[:notice] %></p>
-  </div>
-<% end %>
-
-<div class="card">
-  <h1><%= @artist.name %></h1>
-
-
-<h3>Thank you for signing up. You will recieve periodic emails about our progress and when we launch you'll be the first to know! </h3>
-
-<h5>Check your email for a sweet offer just because you signed up! And don't forget to Tell a Friend to Tell a Friend. :)</h5>
-
-<a href="/" class="btn btn-primary">
-  Home Page
-</a>
-
-<%= link_to "Venue Profile", current_venue %>
-=======
 <%= render partial: './static/toolbar' %>
 <h1><%= @venue.name %></h1>
 
 <h3><%= "Upcoming artists at this event" %></h3>
 <% @venue.events.map do |event| %>
 <%= link_to "#{event.artist.name}", artist_path(event.artist) %><%= " on " %><%= event.date %><br>
+<% end %><br>
+
+<% if @venue == current_user %>
+<%= button_to "Edit your profile", edit_venue_path(@venue), :method => "get" %>
+<%= button_to "Delete yourprofile", @venue, :method => "delete" %>
+<%= button_to "Create a new event", new_event_path, :method => "get" %>
 <% end %>
->>>>>>> aa3d950a952b7babcacbd9dd6cba5d7598a83f1f

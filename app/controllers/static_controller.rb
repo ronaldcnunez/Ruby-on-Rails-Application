@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+  skip_before_action :authorized, only: [:home, :contact, :faq, :about]
   def home
   end
 

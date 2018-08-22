@@ -1,18 +1,22 @@
 class ArtistsController < ApplicationController
+  skip_before_action :authorized, only: [:new, :index, :create, :show]
   before_action :find_artist, only: [:show, :edit, :update, :destroy]
+
 
   def new
     @artist = Artist.new
   end
 
+  def profile
+  render :show
+  end
+
   def create
-    @artist = Artist.new(artist_params)
+    @artist = Artist.create(artist_params)
     if @artist.valid?
-      @artist.save
-      log_in @artist
-       ArtistMailer.signup_email(@artist).deliver
-        flash[:notice] = "Artist was successfully created. You are one step closer to independence!"
-      redirect_to @artist
+      flash[:notice] = "Signup successful! Welcome, #{@artist.name}"
+      session[:artist_id] = @artist.id
+      redirect_to artist_path(@artist)
     else
       render :new
     end
@@ -23,7 +27,7 @@ class ArtistsController < ApplicationController
 
   def index
     if params[:artist_search]
-      @artists = Artist.select {|artist| artist.name.downcase.include?(params[:artist_search].downcase)}
+      @artists = Artist.select {|artist| artist[:name].downcase.include?(params[:artist_search].downcase)}
     else
       @artists = Artist.all
     end
@@ -42,7 +46,7 @@ class ArtistsController < ApplicationController
 
   def destroy
     @artist.destroy
-    redirect_to artists_page
+    redirect_to artists_path
   end
 
   private
@@ -52,6 +56,6 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :email, :password, :password_confirmation)
+    params.require(:artist).permit(:name, :description, :email, :genre, :img_url, :password, :password_confirmation)
   end
 end

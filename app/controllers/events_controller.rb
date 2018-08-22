@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :show]
 
   def new
     @event = Event.new
@@ -37,6 +38,7 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+
   private
 
   def find_event
@@ -45,6 +47,10 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:artist_id, :venue_id, :date, :verified)
+  end
+
+  def set_venue
+    @venue = venue.find(params[:id])
   end
 
 end

@@ -3,9 +3,10 @@ class CreateVenues < ActiveRecord::Migration[5.2]
     create_table :venues do |t|
       t.string :name
       t.string :email
-      t.integer :zip_code
+      t.text :description
+      t.string :location
+      t.string :img_url
       t.string :password_digest
-
       t.timestamps
     end
   end

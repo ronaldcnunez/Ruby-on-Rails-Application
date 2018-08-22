@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= logged_in? ? button_to('Logout', artist_logout_path, method: :delete) : link_to('Login', artist_login_path) %>
     <%= yield %>
   </body>
 </html>

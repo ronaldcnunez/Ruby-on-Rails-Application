@@ -1,31 +1,18 @@
 <%= render partial: './static/toolbar' %>
+<%= flash[:notice] %>
 <h1><%= @artist.name %></h1>
+<h3><%= @artist.description %>
+<h3><%= @artist.genre %></h3>
 <h3><%= "Upcoming Events" %></h3>
 <% @artist.events.map do |event| %>
-<%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %><br>
+<%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %>
+  <% if @artist == current_user %>
+    <%= button_to "Cancel this event", event, :method => "delete" %><br>
+    <% end %>
+
+<% end %><br>
+
+<% if @artist == current_user %>
+  <%= button_to "Edit your profile", edit_artist_path(@artist), :method => "get" %>
+  <%= button_to "Delete your profile", @artist, :method => "delete" %>
 <% end %>
-<<<<<<< HEAD
-
-<div class="card">
-  <h1><%= @artist.name %></h1>
-
-
-<h3>Thank you for signing up. You will recieve periodic emails about our progress and when we launch you'll be the first to know! </h3>
-
-<h5>Check your email for a sweet offer just because you signed up! And don't forget to Tell a Friend to Tell a Friend. :)</h5>
-
-<a href="/" class="btn btn-primary">
-  Home Page
-</a>
-
-
-
-<h2> <%= current_artist.name %> </h2>
-
-
-
-<%= link_to "Artist Log out", artist_logout_path, method: :delete%>
-<%= link_to "Artist Profile", current_artist %>
-<%= link_to "Artist Log in", artist_login_path %>
-=======
->>>>>>> aa3d950a952b7babcacbd9dd6cba5d7598a83f1f

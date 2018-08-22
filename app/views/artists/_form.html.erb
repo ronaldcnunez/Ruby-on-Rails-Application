@@ -12,12 +12,18 @@
   <%= f.label :email %>
   <%= f.email_field :email %> <br>
 
+  <%= f.label :genre %>
+  <%= f.text_field :genre %><bR>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %> <br>
+
+
+  <%= f.label "Artist Image Link" %>
+  <%= f.text_field :img_url %><br>
+
   <%= f.label :password %>
   <%= f.password_field :password %> <br>
-
-  <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation %>
-  <br>
 
   <%= f.submit "Create my account" %>
   <% end %>
