@@ -1,13 +1,14 @@
-<h1>Venue Login</h1>
-<%= form_for(:session, url: venue_login_url) do |f| %>
+<%= render partial: './static/toolbar' %>
+    <h1>Venue Login</h1>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %> <br>
+    <h3><%= flash[:notice] %></h3>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %> <br>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <%= form_tag venue_login_path, method: :post do %>
+      <%= label_tag "Email" %>
+      <%= text_field_tag :email %><br>
+      <%= label_tag "Password" %>
+      <%= text_field_tag :password %><br>
+      <%= submit_tag "Login" %>
     <% end %>
-  </div>
-</div>
+
+    <%= link_to "Create an Venue Account", new_venue_path %>

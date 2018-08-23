@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 2018_08_22_154323) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.text "description", default: "enter description"
     t.string "email"
-    t.string "genre"
-    t.string "img_url"
+    t.string "genre", default: "enter genre"
+    t.string "img_url", default: "https://thumbs.dreamstime.com/b/silhouette-rock-band-9219259.jpg"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(version: 2018_08_22_154323) do
     t.string "name"
     t.string "email"
     t.text "description"
-    t.string "location"
-    t.string "img_url"
+    t.text "describe your venue"
+    t.string "location", default: "somewhere"
+    t.string "img_url", default: "https://mediaassets.10news.com/photo/2018/08/14/Screen%20Shot%202018-08-14%20at%204.28.24%20PM_1534289320974.png_94946240_ver1.0_320_240.jpg"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

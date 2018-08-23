@@ -1,8 +1,11 @@
 <%= render partial: './static/toolbar' %>
 <%= flash[:notice] %>
 <h1><%= @artist.name %></h1>
+<h3>Genre: <%= @artist.genre %></h3>
+<%= image_tag @artist.img_url, :size => "640x480"  %>
 <h3><%= @artist.description %>
-<h3><%= @artist.genre %></h3>
+
+
 <h3><%= "Upcoming Events" %></h3>
 <% @artist.events.map do |event| %>
 <%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %>

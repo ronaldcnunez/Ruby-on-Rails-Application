@@ -5,8 +5,10 @@
 
 <%= form_tag artist_login_path, method: :post do %>
   <%= label_tag "Email" %>
-  <%= text_field_tag :email %>
+  <%= text_field_tag :email %><br>
   <%= label_tag "Password" %>
-  <%= text_field_tag :password %>
+  <%= text_field_tag :password %><br>
   <%= submit_tag "Login" %>
 <% end %>
+
+<%= link_to "Create an Artist Account", new_artist_path %>

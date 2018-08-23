@@ -6,7 +6,8 @@
   <%=link_to "#{event.artist.name}", artist_path(event.artist)%>
   <%= " @ " %>
   <%= link_to "#{event.venue.name}", venue_path(event.venue) %>
-  <%= "(#{event.date})" %>
+  <%= "(#{event.date})" %><br>
+  <p><%= event.description %></p><br>
 </h4>
 <h5>
   <% if event.venue == current_user %>

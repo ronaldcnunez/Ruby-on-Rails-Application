@@ -1,4 +1,28 @@
 <%= render partial: './static/toolbar' %>
 
 <h1>Edit <%= @venue.name %> Profile</h1>
-<%= render 'form' %>
+<%= form_for @venue do |f| %>
+<ul>
+<% if @venue.errors.any? %>
+  <% @venue.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  <% end %>
+  </ul>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :email %>
+  <%= f.email_field :email %> <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %> <br>
+
+  <%= f.submit  %>
+  <% end %>
