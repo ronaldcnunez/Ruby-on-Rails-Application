@@ -10,7 +10,17 @@
   </head>
 
   <body>
-    <%= logged_in? ? button_to('Logout', artist_logout_path, method: :delete) : link_to('Login', artist_login_path) %>
+
+    <!-- <%= logged_in? ? button_to('Logout', artist_logout_path, method: :delete) : link_to('Login', artist_login_path) %> -->
+    <% if logged_in? && current_user.class == Artist %>
+         <%= button_to(' artist Logout', artist_logout_path, method: :delete) %>
+         <% elsif logged_in? && current_user.class == Venue %>
+         <%= button_to(' venue Logout', venue_logout_path, method: :delete) %>
+         <% else %>
+         <%= link_to('Login', artist_login_path) %>
+         <% end %>
+
+
     <%= yield %>
   </body>
 </html>

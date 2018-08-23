@@ -24,4 +24,4 @@ Venue.create(name: "Rockwood Music Hall", email: "RMH@gmail.com", description: "
 Event.create(artist_id: 1, venue_id: 1, description: "AC/DC playing at the electric factory", date: "12-08-2018" )
 Event.create(artist_id: 2, venue_id: 2, description: "Rick Ross debuts his newest album: God made me a hood billionaire to his largest audience yet", date: "11-28-2018" )
 Event.create(artist_id: 3, venue_id: 3, description: "Bono wears his signature glasses and U2 prepares for a stunning performance.", date: "01-06-2019" )
-Event.create(artist_id: 4, venue_id: 2, description: "Yo-Yo Ma and worl reknowned orchestra put on a masterful performance.", date: "03-14-2019" )
+Event.create(artist_id: 4, venue_id: 2, description: "Yo-Yo Ma and world reknowned orchestra put on a masterful performance.", date: "03-14-2019" )

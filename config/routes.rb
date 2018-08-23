@@ -13,7 +13,7 @@ get '/faq', to: 'static#faq'
  # Artist SESSIONS
 get 'artist/login', to: 'artist_sessions#new', as: 'artist_login'
 post 'artist/login', to: 'artist_sessions#create'
-delete '/logout', to: 'artist_sessions#destroy', as: 'artist_logout'
+delete '/artist/logout', to: 'artist_sessions#destroy', as: 'artist_logout'
 
 get '/artist/profile', to: 'artists#profile', as: 'artist_profile'
 get '/artist/profile/edit', to: 'artists#edit', as: 'artist_edit_profile'
@@ -21,7 +21,7 @@ get '/artist/profile/edit', to: 'artists#edit', as: 'artist_edit_profile'
 # Venue Sessions
 get 'venue/login', to: 'venue_sessions#new', as: 'venue_login'
 post 'venue/login', to: 'venue_sessions#create'
-delete '/logout', to: 'venue_sessions#destroy', as: 'venue_logout'
+delete '/venue/logout', to: 'venue_sessions#destroy', as: 'venue_logout'
 
 get '/venue/profile', to: 'venues#profile', as: 'venue_profile'
 get '/venue/profile/edit', to: 'venues#edit', as: 'venue_edit_profile'

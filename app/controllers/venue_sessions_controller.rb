@@ -16,5 +16,7 @@ class VenueSessionsController < ApplicationController
   end
 
   def destroy
+    session.delete(:venue_id)
+    redirect_to root_path
   end
 end
