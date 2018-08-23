@@ -9,6 +9,11 @@
       ) %>
 <% end %><br>
 
+<div class="image-wrapper">
 <% @artists.each do |artist| %>
-<%= link_to "#{artist.name}", artist_path(artist) %><br>
+<div class="artist-box"><%= link_to "#{artist.name}", artist_path(artist) %><br>
+<%= image_tag artist.img_url, :size => "640x480"  %></div>
+
+
 <% end %>
+</div>
