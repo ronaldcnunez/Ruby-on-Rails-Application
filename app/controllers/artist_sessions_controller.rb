@@ -14,7 +14,7 @@
     else
      flash[:notice] = "Invalid username or password"
      redirect_to artist_login_path
-   end
+    end
   end
 
   def destroy

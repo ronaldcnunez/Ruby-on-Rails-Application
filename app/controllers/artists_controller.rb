@@ -26,6 +26,7 @@ class ArtistsController < ApplicationController
   end
 
   def index
+    
     if params[:artist_search]
       @artists = Artist.select {|artist| artist[:name].downcase.include?(params[:artist_search].downcase)}
     else

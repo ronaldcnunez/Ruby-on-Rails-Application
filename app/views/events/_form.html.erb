@@ -4,6 +4,6 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
   <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
-  <%= f.collection_select(:venue_id, Venue.all, :id, :name) %>
+  <%= hidden_field_tag 'event[venue_id]', @venue.id %>
   <%= f.submit %>
 <% end %>
