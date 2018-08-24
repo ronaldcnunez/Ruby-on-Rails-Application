@@ -1,19 +1,19 @@
-<%= render partial: './static/toolbar' %>
+
 <h1>Artist List</h1>
 
-<%= form_tag artists_path, method: :get do %>
+<div class="container">
+<div id="search-box"><%= form_tag artists_path, method: :get do %>
   <%= search_field_tag(
       :artist_search,
       params[:artist_search],
       placeholder: "Search by Artist Name",
       ) %>
-<% end %><br>
+<% end %></div></div>
 
-<div class="image-wrapper">
+<div class="container">
+
 <% @artists.each do |artist| %>
-<div class="artist-box"><%= link_to "#{artist.name}", artist_path(artist) %><br>
-<%= image_tag artist.img_url, :size => "640x480"  %></div>
-
-
+<%= link_to "#{artist.name}", artist_path(artist) %><br>
+<div class="image-gallery"><%= image_tag artist.img_url  %></div>
 <% end %>
 </div>

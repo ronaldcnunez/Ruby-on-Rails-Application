@@ -1,15 +1,18 @@
 <%= render partial: './static/toolbar' %>
 <h1>Venue List</h1>
-<%= link_to "Create a new event(venues only)", new_event_path %>
+<div class="container"><%= link_to "Create a new event(venues only)", new_event_path %></div>
 
 <%= form_tag venues_path, method: :get do %>
-  <%= search_field_tag(
+
+<div class="container"><h4><%= search_field_tag(
       :venue_search,
       params[:venue_search],
       placeholder: "Search by Venue Name",
-      ) %>
+      ) %></h4></div>
 <% end %><br>
 
+
+
 <% @venues.each do |venue| %>
-<%= link_to "#{venue.name}", venue_path(venue) %><br>
+<div class="container"><p><%= link_to "#{venue.name}", venue_path(venue) %></p></div>
 <% end %>
