@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_222924) do
+ActiveRecord::Schema.define(version: 2018_08_22_154323) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(version: 2018_08_23_222924) do
     t.string "genre", default: "enter genre"
     t.string "img_url", default: "https://thumbs.dreamstime.com/b/silhouette-rock-band-9219259.jpg"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "comment"
-    t.integer "artist_id"
-    t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,10 +34,10 @@ ActiveRecord::Schema.define(version: 2018_08_23_222924) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "artist_id"
-    t.integer "venue_id"
     t.text "description"
     t.string "date"
+    t.integer "artist_id"
+    t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
