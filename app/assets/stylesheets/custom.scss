@@ -3,6 +3,7 @@
 
 body {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 section {
@@ -18,6 +19,18 @@ textarea {
 }
 
 .center h1 {
+  margin-bottom: 10px;
+}
+
+.center h2 {
+  margin-bottom: 10px;
+}
+
+.center h3 {
+  margin-bottom: 10px;
+}
+
+.center h5 {
   margin-bottom: 10px;
 }
 .center p {
@@ -50,6 +63,31 @@ h2 {
   color: #777;
 }
 
+h3 {
+  font-size: 1.0em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+h4 {
+  font-size: 0.8em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+h5 {
+  font-size: 0.5em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -74,7 +112,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 50px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
@@ -101,17 +139,10 @@ body, html {
     height: 100%;
 }
 
-.home-background {
-  background-image: url(../images/elvis.jpeg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  width: 100%;
-}
+
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
   grid-gap: 15px;
 }
 
@@ -132,9 +163,6 @@ footer {
   background: white;
 }
 
-.gallery-img {
-  width: 100%;
-}
 
 .wrapper {
   width: 50%;
@@ -145,8 +173,30 @@ footer {
   background-color: thistle;
 }
 
+.artist_index {
+  text-align: center;
+  border: 1px solid black;
+}
 
-#main {background: url('https://timedotcom.files.wordpress.com/2017/08/elvis-in-heart-america.jpg') no-repeat center center fixed;}
+
+// #home-background {
+//   background: url("https://timedotcom.files.wordpress.com/2017/08/elvis-in-heart-america.jpg")
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   background-size: cover;
+//   -o-background-size: cover;
+//   width: 100%;
+// }
+
+// body {
+//   background: url("https://timedotcom.files.wordpress.com/2017/08/elvis-in-heart-america.jpg")
+// }
+
+.background-image {
+  background: url("https://timedotcom.files.wordpress.com/2017/08/elvis-in-heart-america.jpg")
+}
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

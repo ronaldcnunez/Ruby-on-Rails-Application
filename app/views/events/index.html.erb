@@ -7,13 +7,12 @@
 
 
 <% @events.map do |event| %>
-<h4>
-  <%=link_to "#{event.artist.name}", artist_path(event.artist)%>
-  <%= " @ " %>
-  <%= link_to "#{event.venue.name}", venue_path(event.venue) %>
-  <%= "(#{event.date})" %><br>
-  <p><%= event.description %></p><br>
-</h4>
+
+  <h2><%=link_to "#{event.artist.name} @", artist_path(event.artist)%></h2>
+
+  <h3><%= link_to "#{event.venue.name}", venue_path(event.venue) %></h3>
+  <h3><%= "(#{event.date})" %></h3>
+  <h3><%= event.description %></h3><br>
 <h5>
   <% if event.venue == current_user %>
   <%= link_to "Edit this event", edit_event_path(event) %>
