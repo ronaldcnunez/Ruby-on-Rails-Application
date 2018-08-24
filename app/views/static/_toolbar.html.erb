@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-<!-- 
-=======
+
 <% if current_user.class == Artist %>
 <%= link_to "Profile", artist_path(current_user.id) %>
 <%elsif %>
@@ -13,7 +11,7 @@
 
 
 <% if !logged_in? %>
->>>>>>> zoovie
+
 <%= link_to "Artist Login", artist_login_path %>
 <%end%>
 
@@ -25,4 +23,4 @@
 <%= link_to "Venues", venues_path %>
 <%= link_to "Events", confirmed_events_path %>
 <%= link_to "About", about_path %>
-<%= link_to "FAQ", faq_path %> -->
+<%= link_to "FAQ", faq_path %>
