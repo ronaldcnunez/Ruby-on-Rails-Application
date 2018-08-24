@@ -12,7 +12,7 @@ class VenueSessionsController < ApplicationController
     else
      flash[:notice] = "Invalid username or password"
      redirect_to venue_login_path
-   end
+    end
   end
 
   def destroy

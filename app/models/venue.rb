@@ -3,4 +3,6 @@ class Venue < ApplicationRecord
   has_many :events
   has_many :artists, through: :events
   has_many :confirmed_events
+  has_many :comments
+
 end

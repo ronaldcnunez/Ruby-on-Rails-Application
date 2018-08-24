@@ -26,6 +26,11 @@ delete '/venue/logout', to: 'venue_sessions#destroy', as: 'venue_logout'
 get '/venue/profile', to: 'venues#profile', as: 'venue_profile'
 get '/venue/profile/edit', to: 'venues#edit', as: 'venue_edit_profile'
 
+# CONFIRM post
+
+post '/events/:id/confirm', to: 'events#confirm', as: 'confirm' 
+
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

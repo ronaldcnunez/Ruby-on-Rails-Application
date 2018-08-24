@@ -1,5 +1,10 @@
 <%= render partial: './static/toolbar' %>
+
 <h1>Granudo Events</h1>
+ <% if logged_in? && current_user.class == Venue %>
+<h2> <%= link_to "Create a new Event", new_event_path %> </h2>
+<% end %>
+
 
 <% @events.map do |event| %>
 <h4>
