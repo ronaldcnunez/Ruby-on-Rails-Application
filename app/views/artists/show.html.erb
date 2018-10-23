@@ -8,15 +8,16 @@
 <h2><%= "Upcoming Events" %></h2>
 <% @artist.events.map do |event| %>
 <h3><%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %><h3>
-
-<div class="container"><h4> <%= "Description:" %><%= event.description %></h4>
+  <h4><%= "Event details:" %> <%= event.description %></h4>
   <% if @artist == current_user %>
     <%= button_to "Cancel this event", event, :method => "delete" %>
     <%= button_to "Confirm this Event", confirm_path(event) %>
-    <% end %>>/div>
-
-<% end %><br>
-
+    <% end %>
+    <hr>
+<% end %>
+<br>
+<br>
+<br>
 <% if @artist == current_user %>
   <%= button_to "Edit your profile", edit_artist_path(@artist), :method => "get" %>
   <%= button_to "Delete your profile", @artist, :method => "delete" %>
