@@ -10,14 +10,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to events_path
+      redirect_to confirmed_events_path
     else
       render :new
     end
   end
 
   def show
-    
+
   end
 
   def index
