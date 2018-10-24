@@ -1,18 +1,18 @@
-<h1><%= @venue.name %></h1>
+<h1> <%= @venue.name %> </h1>
 <h4>Location: <%= @venue.location %></h4>
 <h2><%= image_tag @venue.img_url, :size => "640x480" %><h2>
-
 <h3><%= @venue.description %></h3>
-
 <h3><%= "Upcoming artists at this event" %></h3>
-<% @venue.events.map do |event| %>
-<%= link_to "#{event.artist.name}", artist_path(event.artist) %><%= " on " %><%= event.date %><br>
-<% end %><br>
-
+  <% @venue.events.map do |event| %>
+    <%= link_to "#{event.artist.name}", artist_path(event.artist) %>
+    <%= " on " %>
+    <%= event.date %><br>
+  <% end %>
+<br>
 <% if @venue == current_user %>
-<%= button_to "Edit your profile", edit_venue_path(@venue), :method => "get" %>
-<%= button_to "Delete yourprofile", @venue, :method => "delete" %>
-<%= button_to "Create a new event", new_event_path, :method => "get" %>
+  <%= button_to "Edit your profile", edit_venue_path(@venue), :method => "get" %>
+  <%= button_to "Delete yourprofile", @venue, :method => "delete" %>
+  <%= button_to "Create a new event", new_event_path, :method => "get" %>
 <% end %>
 <br>
 <br>

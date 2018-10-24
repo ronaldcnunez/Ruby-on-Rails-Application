@@ -1,22 +1,17 @@
 <h1>Granudo Events</h1>
- <% if logged_in? && current_user.class == Venue %>
-<h2> <%= link_to "Create a new Event", new_event_path %> </h2>
-<br>
-<br>
-<% end %>
+  <% if logged_in? && current_user.class == Venue %>
+    <h2> <%= link_to "Create a new Event", new_event_path %> </h2>
+    <br> <br>
+  <% end %>
 
 <% @confirmed_events.map do |confirmed| %>
-<h4>
-  <%=link_to "#{confirmed.artist_name}", artist_path(confirmed.artist_name)%>
-  <%= " @ " %>
-  <%= link_to "#{confirmed.venue_name}", venue_path(confirmed.venue_name) %>
-  <%= "(#{confirmed.date})" %><br>
-  <p><%= link_to "#{confirmed.description}", confirmed_event_path(confirmed)
-   %></p><br>
-</h4>
-<h5>
-  <br>
-  <br>
-  <% end %>
-  <br>
-  <br>
+  <h4>
+    <%=link_to "#{confirmed.artist_name}", artist_path(confirmed.artist_name)%>
+    <%= " @ " %>
+    <%= link_to "#{confirmed.venue_name}", venue_path(confirmed.venue_name) %>
+    <%= "(#{confirmed.date})" %> <br>
+    <p> <%= link_to "#{confirmed.description}", confirmed_event_path(confirmed) %> </p> <br>
+  </h4>
+  <br> <br>
+<% end %>
+  <br> <br>
