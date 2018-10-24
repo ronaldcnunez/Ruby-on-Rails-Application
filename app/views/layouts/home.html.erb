@@ -31,7 +31,17 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Artists", artists_path %></li>
             <li><%= link_to "Venues", venues_path %></li>
-            <li><%= link_to "Events", events_path %></li>
+            <li><%= link_to "Events", confirmed_events_path %></li>
+
+            <% if current_user.class == Artist %>
+            <li>  <%= link_to "Profile", artist_path(current_user.id) %> </li>
+            <%elsif %>
+            <% current_user.class == Venue %>
+               <li>  <%= link_to "Profile", venue_path(current_user.id) %> </li>
+            <%else %>
+            <% nil %>
+            <% end %>
+
             <% if logged_in? && current_user.class == Artist %>
               <li>   <%= link_to(' Logout', artist_logout_path, method: :delete) %></li>
             <% elsif logged_in? && current_user.class == Venue %>

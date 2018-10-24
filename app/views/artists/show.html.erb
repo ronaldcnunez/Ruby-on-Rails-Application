@@ -4,8 +4,8 @@
 <h2><%= image_tag @artist.img_url, :size => "640x480"  %><h2>
 <h4><%= @artist.description %></h4>
 
-
-<h2><%= "Upcoming Events" %></h2>
+<% if @artist == current_user %>
+<h2><%= "Concert Requests" %></h2>
 <% @artist.events.map do |event| %>
 <h3><%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %><h3>
   <h4><%= "Event details:" %> <%= event.description %></h4>
@@ -15,12 +15,10 @@
     <% end %>
     <hr>
 <% end %>
-
-<% if @artist == current_user %>
+<%= "Profile Settings" %>
   <%= button_to "Edit your profile", edit_artist_path(@artist), :method => "get" %>
   <%= button_to "Delete your profile", @artist, :method => "delete" %>
 <% end %>
-<br>
 <br>
 <br>
 <br>

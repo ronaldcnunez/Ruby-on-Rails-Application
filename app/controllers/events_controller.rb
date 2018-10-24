@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to confirmed_events_path
+      redirect_to venue_path
     else
       render :new
     end
@@ -37,14 +37,14 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path
+    redirect_to confirmed_events_path
   end
 
   def confirm
         @confirmed_event = ConfirmedEvent.new(event_id: @event.id, venue_name: @event.venue.name, artist_name: @event.artist.name, description: @event.description, date: @event.date)
     if @confirmed_event.save
       @event.delete
-      redirect_to confirmed_events_path
+      redirect_to request.referrer
     else
       render :show
     end
