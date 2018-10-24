@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_154323) do
 
   create_table "events", force: :cascade do |t|
     t.text "description"
+    t.boolean "confirmed", default: false
     t.string "date"
     t.integer "artist_id"
     t.integer "venue_id"

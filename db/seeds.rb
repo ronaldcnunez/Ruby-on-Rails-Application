@@ -25,6 +25,7 @@ Venue.create(name: "Madison Square Garden", email: "MSG@gmail.com", description:
 Venue.create(name: "Rockwood Music Hall", email: "RMH@gmail.com", description: "Rockwood Music Hall is a music venue at 196 Allen Street on the Lower East Side of Manhattan, New York City. Owner Ken Rockwood opened the establishment in 2005 as a small bar and music venue.", location: "New York, New York", img_url: "https://image-ticketfly.imgix.net/00/02/61/05/23-og.jpg?w=500&h=334&fit=crop&crop=top", password: "venue")
 
 Event.create(artist_id: 1, venue_id: 1, description: "AC/DC playing at the electric factory", date: "12-08-2018" )
+Event.create(artist_id: 1, venue_id: 2, description: "AC/DC playing at the electric factory", date: "12-08-2019" )
 Event.create(artist_id: 2, venue_id: 2, description: "Rick Ross debuts his newest album: God made me a hood billionaire to his largest audience yet", date: "11-28-2018" )
 Event.create(artist_id: 3, venue_id: 3, description: "Bono wears his signature glasses and U2 prepares for a stunning performance.", date: "01-06-2019" )
 Event.create(artist_id: 4, venue_id: 3, description: "The Concert of a lifetime", date: "03-14-2019" )

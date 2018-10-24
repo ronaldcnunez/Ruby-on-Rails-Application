@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   def confirm
     @confirmed_event = ConfirmedEvent.new(event_id: @event.id, venue_id: @event.venue.id, artist_id: @event.artist.id, description: @event.description, date: @event.date)
       if @confirmed_event.save
-        # @event.delete
+        @event.update(confirmed: true)
         redirect_to request.referrer
       else
         render :show
@@ -56,6 +56,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:artist_id, :venue_id, :date, :description)
+    params.require(:event).permit(:artist_id, :venue_id, :date, :description, :confirmed)
   end
 end

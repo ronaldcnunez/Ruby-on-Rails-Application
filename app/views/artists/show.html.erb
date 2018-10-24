@@ -4,9 +4,10 @@
 <h2><%= image_tag @artist.img_url, :size => "640x480"  %><h2>
 <h4><%= @artist.description %></h4>
 
-<% if @artist == current_user %>
+<% if @artist == current_user  %>
 <h2> <%= "Concert Requests" %> </h2>
   <% @artist.events.map do |event| %>
+  <% if event.confirmed == false %>
     <h3> <%= link_to "#{event.venue.name}", venue_path(event.venue) %>
       <%= " on " %>
       <%= event.date %>
@@ -15,6 +16,7 @@
       <% if @artist == current_user %>
         <%= button_to "Cancel this event", event, :method => "delete" %>
         <%= button_to "Confirm this Event", confirm_path(event) %>
+      <% end %>
       <% end %>
     <hr>
   <% end %>
