@@ -30,7 +30,6 @@
             <li><%= link_to "Artists", artists_path %></li>
             <li><%= link_to "Venues", venues_path %></li>
             <li><%= link_to "Events", confirmed_events_path %></li>
-
             <% if current_user.class == Artist %>
             <li>  <%= link_to "Profile", artist_path(current_user.id) %> </li>
             <%elsif %>
