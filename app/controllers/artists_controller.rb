@@ -2,24 +2,23 @@ class ArtistsController < ApplicationController
   skip_before_action :authorized, only: [:new, :index, :create, :show]
   before_action :find_artist, only: [:show, :edit, :update, :destroy]
 
-
   def new
     @artist = Artist.new
   end
 
   def profile
-  render :show
+    render :show
   end
 
   def create
     @artist = Artist.create(artist_params)
-    if @artist.valid?
-      flash[:notice] = "Signup successful! Welcome, #{@artist.name}"
-      session[:artist_id] = @artist.id
-      redirect_to artist_path(@artist)
-    else
-      render :new
-    end
+      if @artist.valid?
+        flash[:notice] = "Signup successful! Welcome, #{@artist.name}"
+        session[:artist_id] = @artist.id
+        redirect_to artist_path(@artist)
+      else
+        render :new
+      end
   end
 
   def show

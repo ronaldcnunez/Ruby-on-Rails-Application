@@ -9,19 +9,18 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save
-      redirect_to confirmed_events_path
-    else
-      render :new
-    end
+      if @event.save
+        redirect_to confirmed_events_path
+      else
+        render :new
+      end
   end
 
   def show
-
   end
 
   def index
-      @events = Event.all
+    @events = Event.all
   end
 
   def edit
@@ -41,16 +40,14 @@ class EventsController < ApplicationController
   end
 
   def confirm
-        @confirmed_event = ConfirmedEvent.new(event_id: @event.id, venue_name: @event.venue.name, artist_name: @event.artist.name, description: @event.description, date: @event.date)
-    if @confirmed_event.save
-      @event.delete
-      redirect_to request.referrer
-    else
-      render :show
-    end
+    @confirmed_event = ConfirmedEvent.new(event_id: @event.id, venue_name: @event.venue.name, artist_name: @event.artist.name, description: @event.description, date: @event.date)
+      if @confirmed_event.save
+        @event.delete
+        redirect_to request.referrer
+      else
+        render :show
+      end
   end
-
-
 
   private
 
@@ -65,6 +62,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:artist_id, :venue_id, :date, :description)
   end
-
-
 end

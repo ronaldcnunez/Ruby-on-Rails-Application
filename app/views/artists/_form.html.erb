@@ -3,17 +3,14 @@
 <% if @artist.errors.any? %>
   <% @artist.errors.full_messages.each do |error| %>
     <li><%= error %></li>
-    <% end %>
   <% end %>
+<% end %>
   </ul>
   <%= f.label "Band/Artist Name" %>
   <%= f.text_field :name %> <br>
-
   <%= f.label :email %>
   <%= f.email_field :email %> <br>
-
   <%= f.label :password %>
   <%= f.password_field :password %> <br>
-
   <%= f.submit "Create my account" %>
-  <% end %>
+<% end %>

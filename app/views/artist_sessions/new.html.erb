@@ -1,16 +1,11 @@
 <h1>Artist Login</h1>
-
 <h3><%= flash[:notice] %></h3>
-
 <h3><%= form_tag artist_login_path, method: :post do %>
-
   <label for="inputEmail" class="sr-only">Email</label>
   <%= label_tag "Email:" %>
-
   <%= text_field_tag :email %><br>
   <%= label_tag "Password" %>
   <%= text_field_tag :password %><br>
   <%= submit_tag "Login" %>
 <% end %></h3>
-
 <h4><%= link_to "Create an Artist Account", new_artist_path %></h4>
