@@ -7,9 +7,9 @@
 
 <% @confirmed_events.map do |confirmed| %>
 <h4>
-  <%=link_to "#{confirmed.artist_name}", artist_path(confirmed.artist_name)%>
+  <%=link_to "#{confirmed.artist.name}", artist_path(confirmed.artist.id)%>
   <%= " @ " %>
-  <%= link_to "#{confirmed.venue_name}", venue_path(confirmed.venue_name) %>
+  <%= link_to "#{confirmed.venue.name}", venue_path(confirmed.venue.id) %>
   <%= "(#{confirmed.date})" %><br>
   <p><%= link_to "#{confirmed.description}", confirmed_event_path(confirmed)
    %></p><br>

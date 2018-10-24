@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2018_08_22_154323) do
 
   create_table "confirmed_events", force: :cascade do |t|
     t.integer "event_id"
-    t.string "venue_name"
-    t.string "artist_name"
+    t.integer "venue_id"
+    t.integer "artist_id"
     t.string "description"
     t.string "date"
     t.datetime "created_at", null: false

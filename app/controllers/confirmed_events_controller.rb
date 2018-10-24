@@ -9,13 +9,12 @@ class ConfirmedEventsController < ApplicationController
   end
 
   def new
-    @event = Event.find(set_event)
-    @confirmed_event = ConfirmedEvents.new
+    @confirmed_event = ConfirmedEvent.new
   end
 
   private
 
   def set_event
-    @event = event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 end

@@ -40,9 +40,9 @@ class EventsController < ApplicationController
   end
 
   def confirm
-    @confirmed_event = ConfirmedEvent.new(event_id: @event.id, venue_name: @event.venue.name, artist_name: @event.artist.name, description: @event.description, date: @event.date)
+    @confirmed_event = ConfirmedEvent.new(event_id: @event.id, venue_id: @event.venue.id, artist_id: @event.artist.id, description: @event.description, date: @event.date)
       if @confirmed_event.save
-        @event.delete
+        # @event.delete
         redirect_to request.referrer
       else
         render :show
@@ -50,10 +50,6 @@ class EventsController < ApplicationController
   end
 
   private
-
-  def set_venue
-    @venue = venue.find(params[:id])
-  end
 
   def find_event
     @event = Event.find(params[:id])
