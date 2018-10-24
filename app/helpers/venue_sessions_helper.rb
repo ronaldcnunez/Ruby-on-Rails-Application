@@ -5,9 +5,9 @@ module VenueSessionsHelper
   end
 
   def current_venue
-   if session[:venue_id]
-     @current_venue ||= Venue.find_by(id: session[:venue_id])
-   end
+    if session[:venue_id]
+      @current_venue ||= Venue.find_by(id: session[:venue_id])
+    end
   end
 
   def logged_in?
@@ -15,8 +15,8 @@ module VenueSessionsHelper
   end
 
   def log_out
-   session.delete(:venue_id)
-   @current_venue = nil
+    session.delete(:venue_id)
+    @current_venue = nil
   end
 
 end

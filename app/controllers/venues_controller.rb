@@ -8,13 +8,13 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.create(venue_params)
-    if @venue.valid?
-      flash[:notice] = "Signup successful! Welcome, #{@venue.name}"
-      session[:venue_id] = @venue.id
-      redirect_to venue_path(@venue)
-    else
-      render :new
-    end
+      if @venue.valid?
+        flash[:notice] = "Signup successful! Welcome, #{@venue.name}"
+        session[:venue_id] = @venue.id
+        redirect_to venue_path(@venue)
+      else
+        render :new
+      end
   end
 
   def show
