@@ -13,6 +13,9 @@ Artist.create(name: "U2", email: "u2@gmail.com", description: "U2 are an Irish r
     img_url: "http://is-a-cunt.com/wp-content/uploads/2017/12/U2.jpg", password: "artist" )
 
 Artist.create(name: "Yo-Yo Ma", email: "ya_boi_yoyo@gmail.com", description: "Yo-Yo Ma (born October 7, 1955) is a French-born American cellist.[2] Born in Paris, he spent his schooling years in New York City and was a child prodigy, performing from the age of four and a half. He graduated from the Juilliard School and Harvard University and has enjoyed a prolific career as both a soloist performing with orchestras around the world and a recording artist. He has recorded more than 90 albums and received 18 Grammy Awards.", genre: "Classical", img_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Yo-Yo_Ma_2013.jpg", password: "artist" )
+Artist.create(name: "Roy Woods", email: "roywoods@gmail.com", description: "Denzel Spencer (born April 18, 1996), better known by his stage name Roy Woods (stylized as Roy Wood$), is a Canadian singer and songwriter. He is signed to OVO Sound, of which was the record label that was co-founded by Canadian rapper and singer Drake, record producer Noah Shebib and Oliver El-Khatib. He is also the founder of the collective, called Unlock The Underground.", genre: "FIRE", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roy_Woods_2018.png/220px-Roy_Woods_2018.png", password: "artist")
+
+Artist.create(name: "Pecos Kanvas", email: "pecoskanvas@gmail.com", description: "At the age of 15 he participated in ecclesiastical youth choirs and later he participated in the Alfredo Ledezma Show and the group Escena. Four years later, Rudy Márquez gave him the stage name he used throughout his life. He worked on composing telenovelas for RCTV, making himself famous when he release", genre: "OLD SCHOOL Spanish", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roy_Woods_2018.png/220px-Roy_Woods_2018.png", password: "artist" )
 
 
 Venue.create(name: "The Electric Factory", email: "electric_factory@gmail.com", description: "The Electric Factory is a concert venue in Philadelphia, Pennsylvania, located at 421 N. 7th Street between Willow and Spring Garden Streets in a converted electric factory. It opened in 1995 and was named for the original Electric Factory.", location: "Philadelphia, Pennsylvania", img_url: "https://assets.visitphilly.com/wp-content/uploads/2017/12/crtsy-electric-factory-crowd-900VP.jpg", password: "venue")
@@ -24,4 +27,6 @@ Venue.create(name: "Rockwood Music Hall", email: "RMH@gmail.com", description: "
 Event.create(artist_id: 1, venue_id: 1, description: "AC/DC playing at the electric factory", date: "12-08-2018" )
 Event.create(artist_id: 2, venue_id: 2, description: "Rick Ross debuts his newest album: God made me a hood billionaire to his largest audience yet", date: "11-28-2018" )
 Event.create(artist_id: 3, venue_id: 3, description: "Bono wears his signature glasses and U2 prepares for a stunning performance.", date: "01-06-2019" )
-Event.create(artist_id: 4, venue_id: 2, description: "Yo-Yo Ma and world reknowned orchestra put on a masterful performance.", date: "03-14-2019" )
+Event.create(artist_id: 4, venue_id: 3, description: "The Concert of a lifetime", date: "03-14-2019" )
+Event.create(artist_id: 5, venue_id: 2, description: "A cool kick back with great sounds.", date: "03-14-2019" )
+Event.create(artist_id: 6, venue_id: 1, description: "Project X type of concert", date: "03-14-2019" )

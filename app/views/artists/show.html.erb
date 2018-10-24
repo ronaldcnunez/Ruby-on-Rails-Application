@@ -1,24 +1,26 @@
-<%= render partial: './static/toolbar' %>
 <%= flash[:notice] %>
 <h1><%= @artist.name %></h1>
 <h3>Genre: <%= @artist.genre %></h3>
 <h2><%= image_tag @artist.img_url, :size => "640x480"  %><h2>
 <h4><%= @artist.description %></h4>
 
-
-<h2><%= "Upcoming Events" %></h2>
+<% if @artist == current_user %>
+<h2><%= "Concert Requests" %></h2>
 <% @artist.events.map do |event| %>
 <h3><%= link_to "#{event.venue.name}", venue_path(event.venue) %><%= " on " %><%= event.date %><h3>
-
-<div class="container"><h4> <%= "Description:" %><%= event.description %></h4>
+  <h4><%= "Event details:" %> <%= event.description %></h4>
   <% if @artist == current_user %>
     <%= button_to "Cancel this event", event, :method => "delete" %>
     <%= button_to "Confirm this Event", confirm_path(event) %>
-    <% end %>>/div>
-
-<% end %><br>
-
-<% if @artist == current_user %>
+    <% end %>
+    <hr>
+<% end %>
+<%= "Profile Settings" %>
   <%= button_to "Edit your profile", edit_artist_path(@artist), :method => "get" %>
   <%= button_to "Delete your profile", @artist, :method => "delete" %>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
