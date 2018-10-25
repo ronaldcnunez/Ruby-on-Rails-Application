@@ -1,7 +1,5 @@
-    <h1>Venue Login</h1>
-
-    <h3><%= flash[:notice] %></h3>
-
+<h1>Venue Login</h1>
+  <h3><%= flash[:notice] %></h3>
     <h3><%= form_tag venue_login_path, method: :post do %>
       <%= label_tag "Email" %>
       <%= text_field_tag :email %><br>
@@ -9,5 +7,4 @@
       <%= text_field_tag :password %><br>
       <%= submit_tag "Login" %></h3>
     <% end %>
-
   <h4> <%= link_to "Create an Venue Account", new_venue_path %></h4>

@@ -3,33 +3,25 @@
   <head>
     <title>Granudo</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                                              'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"> </script>
   </head>
-
   <body>
-
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <%= link_to "Granudo", root_path, id: "logo" %>
         <nav>
-
           <ul class="nav navbar-nav navbar-right">
-
             <li><%= link_to "Artists", artists_path %></li>
             <li><%= link_to "Venues", venues_path %></li>
             <li><%= link_to "Events", confirmed_events_path %></li>
+
             <% if current_user.class == Artist %>
             <li>  <%= link_to "Profile", artist_path(current_user.id) %> </li>
             <%elsif %>
@@ -38,33 +30,29 @@
             <%else %>
             <% nil %>
             <% end %>
+
             <% if logged_in? && current_user.class == Artist %>
-              <li>   <%= link_to('Logout', artist_logout_path, method: :delete) %></li>
+              <li> <%= link_to('Logout', artist_logout_path, method: :delete) %> </li>
                 <% elsif logged_in? && current_user.class == Venue %>
-              <li>   <%= link_to('Logout', venue_logout_path, method: :delete) %></li>
-              <% else %>
-              <li>   <%= link_to('Login', artist_login_path) %></li>
-                 <% end %>
+              <li> <%= link_to('Logout', venue_logout_path, method: :delete) %> </li>
+                <% else %>
+              <li> <%= link_to('Login', artist_login_path) %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
     </header>
-
-
-
-      <footer class="footer navbar-fixed-bottom navbar-inverse">
-          <div class="container">
-            <nav>
-              <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "About", about_path %></li>
-                <li><%= link_to "FAQ", faq_path %></li>
-              </ul>
-            </nav>
-            </div>
-          </footer>
-
+    <footer class="footer navbar-fixed-bottom navbar-inverse">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "FAQ", faq_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
       <%= yield %>
-
 
   </body>
 

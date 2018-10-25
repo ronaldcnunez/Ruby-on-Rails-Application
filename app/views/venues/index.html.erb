@@ -1,11 +1,10 @@
 <h1>Venue List</h1>
-<h3><%= form_tag venues_path, method: :get do %>
-  <%= search_field_tag(
-      :venue_search,
-      params[:venue_search],
-      placeholder: "Search by Venue Name",
-      ) %></h3>
-<% end %><br>
+  <h3>
+    <%= form_tag venues_path, method: :get do %>
+     <%= search_field_tag( :venue_search, params[:venue_search], placeholder: "Search by Venue Name") %>
+  </h3>
+    <% end %>
+      <br>
 <% @venues.each do |venue| %>
-<h2><%= link_to "#{venue.name}", venue_path(venue) %><br></h2>
+  <h2><%= link_to "#{venue.name}", venue_path(venue) %><br></h2>
 <% end %>

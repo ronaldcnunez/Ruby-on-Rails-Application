@@ -1,9 +1,8 @@
 <h1>Granudo Events</h1>
- <% if logged_in? && current_user.class == Venue %>
-<h2> <%= link_to "Create a new Event", new_event_path %> </h2>
-<br>
-<br>
-<% end %>
+  <% if logged_in? && current_user.class == Venue %>
+    <h2> <%= link_to "Create a new Event", new_event_path %> </h2>
+    <br> <br>
+  <% end %>
 
 <% @confirmed_events.map do |confirmed| %>
 <h4>
