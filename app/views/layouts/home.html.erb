@@ -36,7 +36,7 @@
             <% elsif logged_in? && current_user.class == Venue %>
               <li>   <%= link_to(' Logout', venue_logout_path, method: :delete) %></li>
             <% else %>
-              <li>   <%= link_to('Login', artist_login_path) %></li>
+              <li>   <%= link_to('Login', root_path) %></li>
             <% end %>
           </ul>
         </nav>
